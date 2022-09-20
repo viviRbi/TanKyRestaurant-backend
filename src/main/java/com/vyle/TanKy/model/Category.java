@@ -16,6 +16,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -34,7 +35,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder @Getter @Setter @ToString
 //lombok @Data not working (causes @NoArgsConstructor @AllArgsConstructor not working)
-public class Category {
+public class Category extends RepresentationModel<Category>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
