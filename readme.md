@@ -9,6 +9,7 @@
 - Each Category will have a list of Dishes to displace
 - Customer can add Dish to Cart, fill out Customer Form and make a Payment
 - Using Paypal as payment gateway
+- Testing with Jacoco report and JUnit/Mockito
 - Docker compose
 - Full CI/CD with Jenkins Master/Slave
 - TerraForm if have time
