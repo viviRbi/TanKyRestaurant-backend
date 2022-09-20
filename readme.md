@@ -9,4 +9,7 @@
 - Each Category will have a list of Dishes to displace
 - Customer can add Dish to Cart, fill out Customer Form and make a Payment
 - Using Paypal as payment gateway
-- Break into Micro Services if have time
+- Docker compose
+- Full CI/CD with Jenkins Master/Slave
+- TerraForm if have time
+- Clone and Break into Micro Services once the Monolith complete if have time
