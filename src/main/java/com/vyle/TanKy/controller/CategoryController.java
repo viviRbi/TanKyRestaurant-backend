@@ -32,12 +32,12 @@ public class CategoryController {
 	}
 	
 	@GetMapping("category/{id}")
-	public Optional<Category> getCategory(@PathVariable Integer id) {
-		Optional<Category> c = cateRepo.findById(id);
+	public Category getCategory(@PathVariable Integer id) throws Exception {
+		Category c = cateRepo.findById(id).orElseThrow(() -> new Exception("Not found category with id "+ id));
 		Link withRel = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(CategoryController.class)
 			.getAllCategory())
 			.withRel("All-Category");
-		c.ifPresent(e -> e.add(withRel));
+		c.add(withRel);
 		return c; 
 	}
 	

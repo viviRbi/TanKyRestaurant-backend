@@ -1,4 +1,4 @@
-package com.vyle.TanKy.config;
+/*package com.vyle.TanKy.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,22 +10,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig{
 
 	@Bean
 	public SecurityFilterChain configure(HttpSecurity http) throws Exception{
-		return http.csrf().disable() // disable cross site request forgery
-		.authorizeRequests(auth -> {
-			auth.antMatchers("/").permitAll();
-			auth.antMatchers("/category/add","/dish/add").hasRole("ADMIN");
+		return http.cors().and()
+				.csrf().disable() // disable cross site request forgery
+					
+				.authorizeRequests(auth -> {
+							auth.antMatchers("/").permitAll();
+							auth.antMatchers("/category/add","/dish/add").hasRole("ADMIN");
 		})
-		.httpBasic(Customizer.withDefaults())
+		//.apply(new AuthenticationConfigurer(jwtTokenService))
+		.httpBasic().disable()
 		.build();
 	}
 	
-//	@Bean 
-//	JwtDecoder jwtDecoder() {
-//		return NimbusJwtDecoder.w
-//	}
-}
+}*/
