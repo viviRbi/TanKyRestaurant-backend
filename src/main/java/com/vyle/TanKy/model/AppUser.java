@@ -21,6 +21,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -30,7 +32,7 @@ import lombok.ToString;
 		@UniqueConstraint(columnNames = "username"),
 		@UniqueConstraint(columnNames = "email")
 })
-@Getter @Setter @ToString @AllArgsConstructor @NoArgsConstructor @Builder
+@Getter @Setter @ToString @AllArgsConstructor @NoArgsConstructor @RequiredArgsConstructor
 public class AppUser {
 	
 	@Id
@@ -39,15 +41,18 @@ public class AppUser {
 	
 	@NotBlank
 	@Size(max=20)
+	@NonNull
 	private String username;
 	
 	@NotBlank
 	@Size(max=20)
 	@Email
+	@NonNull
 	private String email;
 	
 	@NotBlank
 	@Size(max=120)
+	@NonNull
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.LAZY)

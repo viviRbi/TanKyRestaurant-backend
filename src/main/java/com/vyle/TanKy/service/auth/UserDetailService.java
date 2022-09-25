@@ -1,4 +1,4 @@
-package com.vyle.TanKy.service;
+package com.vyle.TanKy.service.auth;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

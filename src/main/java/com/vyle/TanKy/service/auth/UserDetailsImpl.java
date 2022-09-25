@@ -1,4 +1,4 @@
-package com.vyle.TanKy.service;
+package com.vyle.TanKy.service.auth;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 
-@AllArgsConstructor @Builder @EqualsAndHashCode
+@AllArgsConstructor @EqualsAndHashCode
 public class UserDetailsImpl implements UserDetails{
 	
 	public static final long serialVersionUID = 1L;
@@ -31,52 +31,52 @@ public class UserDetailsImpl implements UserDetails{
 		List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
 		return new UserDetailsImpl(
-				user.getId(), user.getUsername(),
-				user.getEmail(), user.getPassword(), authorities
-				);
+				user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), authorities);
 	}
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return password;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return username;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
 	
 	
 

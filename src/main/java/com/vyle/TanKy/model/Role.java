@@ -26,7 +26,6 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Builder
 @AllArgsConstructor
 @Getter @Setter @ToString
 public class Role {
