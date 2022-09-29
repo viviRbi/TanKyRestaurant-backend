@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,10 +16,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.vyle.TanKy.aop.LoggingAspect;
 import com.vyle.TanKy.service.auth.UserDetailsServiceImp;
 import com.vyle.TanKy.util.JwtUtils;
 
 public class AuthTokenFilter extends OncePerRequestFilter{
+	
+	private final Logger logger = LogManager.getLogger(LoggingAspect.class);
 	
 	@Autowired
 	private JwtUtils jwtUtils;
@@ -41,7 +46,7 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 				SecurityContextHolder.getContext().setAuthentication(authentication);
 			} 
 		}catch(Exception e) {
-			System.out.println("Cannot set authentication: {} " + e.getMessage());
+			logger.error("Cannot set authentication: {} " + e.getMessage());
 		}
 		filterChain.doFilter(request, response);
 	}
