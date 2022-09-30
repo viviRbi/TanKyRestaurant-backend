@@ -58,7 +58,7 @@ public class LoggingAspect {
 			
 		}
 		
-		// Data Log
+		//Parameter Log
 		@Before("controllerPointcut() || repositoryPointcut()")
 		public void logParameter(JoinPoint joinPoint) {
 			
@@ -85,6 +85,7 @@ public class LoggingAspect {
 			}
 		}
 		
+		// Return data log
 		@AfterReturning(pointcut ="controllerPointcut()", returning = "result")
 		public void logReturnData(JoinPoint joinPoint, Object result) {
 			MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
