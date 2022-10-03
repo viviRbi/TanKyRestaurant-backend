@@ -26,6 +26,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -33,10 +34,12 @@ import lombok.ToString;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Builder @Getter @Setter @ToString
 //lombok @Data not working (causes @NoArgsConstructor @AllArgsConstructor not working)
 public class Category extends RepresentationModel<Category>{
 
+	@NonNull
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer category_id;

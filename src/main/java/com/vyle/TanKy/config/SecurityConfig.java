@@ -63,7 +63,7 @@ public class SecurityConfig{
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		http.cors().and().csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/category/*").authenticated()
+				.antMatchers("/category/add","/dish/add").authenticated()
 				.anyRequest().permitAll()
 				.and()
 				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

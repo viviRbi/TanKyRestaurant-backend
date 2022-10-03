@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,7 +22,7 @@ import com.vyle.TanKy.model.Dish;
 import com.vyle.TanKy.repository.DishRepository;
 
 @RestController
-@CrossOrigin(origins = "${app.origin}")
+@CrossOrigin(origins = "${app.origin")
 public class DishController {
 
 		@Autowired
@@ -33,8 +35,12 @@ public class DishController {
 		}
 		
 		@GetMapping("/dish/{id}")
-		public Optional<Dish> getDishById(@PathVariable Integer id){
-			Optional<Dish> d = dishRepo.findById(id);
+		public Dish getDishById(@PathVariable Integer id) throws Exception{
+			Dish d = dishRepo.findById(id).orElseThrow(() -> new Exception("Not found dish with id "+ id));
+			Link withRel = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(CategoryController.class)
+					.getAllCategory())
+					.withRel("All-Category");
+				d.add(withRel);
 			return d;
 		}
 		@PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")

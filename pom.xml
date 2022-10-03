@@ -21,16 +21,43 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 			<exclusions>
+				<!-- exclude default logging to use log4j(2) and junit 4 to use junit5-->
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
+				<exclusion>
+            		<groupId>junit</groupId>
+            		<artifactId>junit</artifactId>
+        		</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
 	   		<groupId>org.springframework.boot</groupId>
 	   		<artifactId>spring-boot-starter-log4j2</artifactId>
 	   		<!-- must be 2.15.0 and up to fix vulnerbility. Async logging, lower latency -->
+		</dependency>
+
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-launcher</artifactId>
+		</dependency>
+		 
+		<!-- Mockito extention -->
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-junit-jupiter</artifactId>
+		    <scope>test</scope>
 		</dependency>
 		<dependency>
 	      	<groupId>org.springframework.boot</groupId>
@@ -68,17 +95,6 @@
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
 
- <!--        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-schema</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
-        </dependency> -->
-        
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -136,6 +152,18 @@
 					</goals>
 				</execution>
 			</executions>
+			</plugin>
+		
+			<plugin> <!-- 	Maven Surefire plugin to run test classes using the new JUnit platform launcher -->
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>2.22.2</version>
+			    <dependencies>
+			        <dependency>
+			             <groupId>org.junit.platform</groupId>
+			             <artifactId>junit-platform-surefire-provider</artifactId>
+			             <version>1.3.2</version>
+			         </dependency>
+			     </dependencies>
 			</plugin>
 		</plugins>
 	</build>

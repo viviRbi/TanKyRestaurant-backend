@@ -12,6 +12,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -20,6 +21,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -28,10 +30,12 @@ import lombok.ToString;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Builder @Getter @Setter @ToString
 // lombok @Data not working (causes @NoArgsConstructor @AllArgsConstructor not working)
-public class Dish {
+public class Dish extends RepresentationModel<Category>{
 
+	@NonNull
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer dish_id;
@@ -39,6 +43,7 @@ public class Dish {
 	@NonNull
 	private String name;
 	
+	@NonNull
     @JsonBackReference
 	@ManyToOne
     @JoinColumn(name="category_id")
