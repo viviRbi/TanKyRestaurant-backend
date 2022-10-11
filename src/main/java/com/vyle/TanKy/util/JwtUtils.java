@@ -37,20 +37,17 @@ public class JwtUtils {
 	}
 	
 	public ResponseCookie generateJwtCookie(UserDetailsImpl userDetail) {
-		String jwt = generateTokenFromUserName(userDetail.getUsername());
+		String jwt = Jwts.builder()
+				.setSubject(userDetail.getUsername())
+				.setIssuedAt(new Date())
+				.setExpiration(new Date((new Date().getTime()) + jwtExpiry))
+				.signWith(SignatureAlgorithm.HS512, jwtSecret)
+				.compact();
 		ResponseCookie cookie = ResponseCookie.from(jwtCookie, jwt).path("/").maxAge(24*60*60).httpOnly(true).build();
 		return cookie;
 		
 	}
 	
-	public String generateTokenFromUserName(String username) {
-		return Jwts.builder()
-				.setSubject(username)
-				.setIssuedAt(new Date())
-				.setExpiration(new Date((new Date().getTime()) + jwtExpiry))
-				.signWith(SignatureAlgorithm.HS512, jwtSecret)
-				.compact();
-	}
 	
 	public String getUserNameFromJwtToken(String token) {
 		return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();

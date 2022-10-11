@@ -27,7 +27,6 @@ import com.vyle.TanKy.service.auth.UserDetailsServiceImp;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-// public class SecurityConfig extends GlobalMethodSecurityConfiguration
 public class SecurityConfig{
 	
 	@Autowired
@@ -41,7 +40,7 @@ public class SecurityConfig{
 		return new AuthTokenFilter();
 	}
 	
-	// use DaoAuthenticationProvider to retrieve data from User DetailsService
+	// use DaoAuthenticationProvider to retrieve data from User DetailsServiceImpl
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();

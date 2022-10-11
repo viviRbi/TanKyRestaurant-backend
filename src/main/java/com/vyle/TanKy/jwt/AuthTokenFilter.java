@@ -35,11 +35,11 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 			throws ServletException, IOException {
 		// Get jwt from Http Cookies and parse username from it
 		try {
-			String jwt = parseJwt(request);
+			String jwt = jwtUtils.getJwtCookies(request);
 			if(jwt != null && jwtUtils.validateJwtToken(jwt)) {
 				String username = jwtUtils.getUserNameFromJwtToken(jwt);
 				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-				System.out.println("Once per filter " + userDetails.toString());
+
 				UsernamePasswordAuthenticationToken authentication = 
 						new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
@@ -49,10 +49,6 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 			logger.error("Cannot set authentication: {} " + e.getMessage());
 		}
 		filterChain.doFilter(request, response);
-	}
-	private String parseJwt(HttpServletRequest request) {
-		String jwt = jwtUtils.getJwtCookies(request);
-		return jwt;
 	}
 
 }

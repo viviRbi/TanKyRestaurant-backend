@@ -1,0 +1,23 @@
+version : '0'
+services:
+  # Website
+  web:
+    build: .
+    ports: 
+        - "4500:9090"
+        
+    # Database
+  db:
+    image: mysql
+    environment:
+        - MYSQL_DATABASE=mysqldocker
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_HOST=localhost
+        - MYSQL_PORT=3306
+        - MYSQL_USER=mysqldocker
+        - MYSQL_PASSWORD=mysql
+        - MYSQL_MY_DATABASE=my-database
+    ports: 
+        - "3306:3306"
+    volumes:
+        - "../DockerVolumes/mysql"
