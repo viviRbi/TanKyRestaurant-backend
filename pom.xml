@@ -37,6 +37,12 @@
 	   		<artifactId>spring-boot-starter-log4j2</artifactId>
 	   		<!-- must be 2.15.0 and up to fix vulnerbility. Async logging, lower latency -->
 		</dependency>
+		
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>1.4.2</version>
+		</dependency>
 
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
