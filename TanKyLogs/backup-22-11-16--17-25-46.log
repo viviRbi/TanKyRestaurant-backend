@@ -1,0 +1,27 @@
+[INFO ] 2022-11-16 17:23:41,176[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : Starting TanKyRestaurant1Application using Java 17.0.5 on vy-Nitro-AN515-58 with PID 94731 (/home/vy/eclipse-workspace/TanKy/TanKyRestaurant-backend/target/classes started by vy in /home/vy/eclipse-workspace/TanKy/TanKyRestaurant-backend)
+ main[DEBUG] 2022-11-16 17:23:41,179[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : Running with Spring Boot v2.7.4-SNAPSHOT, Spring v5.3.23
+ main[INFO ] 2022-11-16 17:23:41,179[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : The following 1 profile is active: "docker"
+ main[DEBUG] 2022-11-16 17:23:43,803[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.jwt.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use
+ main[INFO ] 2022-11-16 17:23:44,746[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : Started TanKyRestaurant1Application in 3.707 seconds (JVM running for 4.127)
+ main[INFO ] 2022-11-16 17:24:24,270[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : AuthController.registerUser argruments: {"signupReq":{"username":"string","email":"string@gmail.com","role":null,"password":"string"}}
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:24,273[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : UserRepository.existsByUsername argruments: {"username":"string"}
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:24,333[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of UserRepository.existsByUsername :: 60 ms
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:24,333[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : UserRepository.existsByEmail argruments: {"email":"string@gmail.com"}
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:24,335[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of UserRepository.existsByEmail :: 2 ms
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:24,409[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : RoleRepository.findByName argruments: {"name":"ROLE_ADMIN"}
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:24,414[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of RoleRepository.findByName :: 5 ms
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:24:41,301[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : AuthController.registerUser argruments: {"signupReq":{"username":"string","email":"string@gmail.com","role":null,"password":"string"}}
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:24:41,301[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : UserRepository.existsByUsername argruments: {"username":"string"}
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:24:41,303[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of UserRepository.existsByUsername :: 1 ms
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:24:41,303[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : UserRepository.existsByEmail argruments: {"email":"string@gmail.com"}
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:24:41,304[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of UserRepository.existsByEmail :: 1 ms
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:24:41,383[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : RoleRepository.findByName argruments: {"name":"ROLE_ADMIN"}
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:24:41,384[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of RoleRepository.findByName :: 1 ms
+ http-nio-4500-exec-5[INFO ] 2022-11-16 17:25:17,260[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : CategoryController.getAllCategory argruments: []
+ http-nio-4500-exec-1[INFO ] 2022-11-16 17:25:17,260[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of CategoryController.getAllCategory :: 13 ms
+ http-nio-4500-exec-1[INFO ] 2022-11-16 17:25:24,278[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : DishController.getAllDish argruments: []
+ http-nio-4500-exec-4[INFO ] 2022-11-16 17:25:24,278[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of DishController.getAllDish :: 6 ms
+ http-nio-4500-exec-4[INFO ] 2022-11-16 17:25:46,417[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : AuthController.authenticatedUser argruments: {"loginRequest":{"username":"string","password":"string"}}
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:25:46,492[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : UserRepository.findByUsername argruments: {"username":"string"}
+ http-nio-4500-exec-6[INFO ] 2022-11-16 17:25:46,495[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.aop.LoggingAspect : Execution time of UserRepository.findByUsername :: 2 ms
+ http-nio-4500-exec-6

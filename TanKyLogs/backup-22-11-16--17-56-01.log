@@ -1,0 +1,4 @@
+[INFO ] 2022-11-16 17:56:01,374[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1ApplicationTests : Starting TanKyRestaurant1ApplicationTests using Java 17.0.5 on vy-Nitro-AN515-58 with PID 100992 (started by vy in /home/vy/eclipse-workspace/TanKy/TanKyRestaurant-backend)
+ main[DEBUG] 2022-11-16 17:56:01,377[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1ApplicationTests : Running with Spring Boot v2.7.4-SNAPSHOT, Spring v5.3.23
+ main[INFO ] 2022-11-16 17:56:01,377[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1ApplicationTests : The following 1 profile is active: "docker"
+ main

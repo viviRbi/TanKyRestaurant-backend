@@ -1,0 +1,6 @@
+[INFO ] 2022-11-16 17:20:54,804[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : Starting TanKyRestaurant1Application using Java 17.0.5 on vy-Nitro-AN515-58 with PID 63861 (/home/vy/eclipse-workspace/TanKy/TanKyRestaurant-backend/target/classes started by vy in /home/vy/eclipse-workspace/TanKy/TanKyRestaurant-backend)
+ main[DEBUG] 2022-11-16 17:20:54,807[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : Running with Spring Boot v2.7.4-SNAPSHOT, Spring v5.3.23
+ main[INFO ] 2022-11-16 17:20:54,807[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : The following 1 profile is active: "docker"
+ main[DEBUG] 2022-11-16 17:20:57,142[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.jwt.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use
+ main[INFO ] 2022-11-16 17:20:58,072[mm-dd HH:mm:ss:SSS] com.vyle.TanKy.TanKyRestaurant1Application : Started TanKyRestaurant1Application in 3.401 seconds (JVM running for 3.772)
+ main

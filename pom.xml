@@ -141,7 +141,21 @@
 
 	<build>
 		<plugins>
+		<!-- doesn't need this in the window10 but in ubuntu need it to package jar file' -->
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		<!-- Ubuntu22 Error:JAVA_HOME should point to a JDK, not a JRE even though java_home path was correct -->
+			<!--<plugin>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <version>3.7.0</version>
+			    <configuration>
+			        <fork>true</fork>
+			        <executable>/usr/lib/jvm/java-11-openjdk-amd64/bin/javac</executable>
+			    </configuration>
+			</plugin> -->
+			<!--<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
@@ -163,9 +177,10 @@
 					</goals>
 				</execution>
 			</executions>
-			</plugin>
+			</plugin>-->
 		
-			<plugin> <!-- 	Maven Surefire plugin to run test classes using the new JUnit platform launcher -->
+			<!-- 	Maven Surefire plugin to run test classes using the new JUnit platform launcher -->
+		<plugin> 
 			    <artifactId>maven-surefire-plugin</artifactId>
 			    <version>2.22.2</version>
 			    <dependencies>
